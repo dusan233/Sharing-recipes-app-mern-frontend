@@ -1,0 +1,214 @@
+.nav {
+  width: 100%;
+  top: 0;
+  position: relative;
+  background: $navigationBackground;
+  z-index: 100;
+  @include screen(large) {
+    padding: 0 20px;
+  }
+}
+.nav_navigation {
+  background: $navigationBackground;
+}
+.nav_container_img img {
+  width: 120px;
+}
+.nav_container_img {
+  @include flex();
+}
+.nav_container {
+  width: 1300px;
+  margin: 0 auto;
+  @include flex();
+  padding: 5px 0;
+  @include screen(large) {
+    width: 100%;
+  }
+}
+.nav_container_part1 {
+  flex: 1;
+  padding: 10px 0;
+  @include flex(flex-start, center, row);
+  @include screen(med) {
+    display: none;
+  }
+}
+.nav_container_part2 {
+  flex: 1;
+  @include flex(flex-end, center, row);
+  padding: 10px 0;
+}
+.nav_link {
+  @extend .btn_one;
+  @include flex();
+  &:hover {
+    color: $red;
+  }
+}
+.nav_link--red:last-of-type {
+  margin-right: 0px;
+}
+.nav_link--red {
+  @extend .btn_one;
+  background: $red;
+  border-radius: 50px;
+  padding: 10px 15px;
+  &:hover {
+    background: $darkRed;
+  }
+}
+.nav_link--red-two {
+  @extend .btn_one;
+  background: $red;
+  border-radius: 5px;
+  padding: 10px 15px;
+  &:hover {
+    background: $darkRed;
+  }
+}
+.user_card {
+  @include flex();
+  border-radius: 50%;
+  margin-right: 30px;
+  position: relative;
+  padding: 5px;
+}
+.user_icon {
+  font-size: 30px;
+  color: $white;
+  cursor: pointer;
+}
+.user_icon_red {
+  @extend .user_icon;
+  color: $red;
+}
+.user_dropdown {
+  background: $navigationBackground;
+  border-bottom: 2px solid $red;
+  border-top: 2px solid $red;
+  position: absolute;
+  top: 180%;
+  pointer-events: none;
+  z-index: 100;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px;
+  border-radius: 5px;
+  color: $red;
+  min-width: 200px;
+  display: none;
+}
+.user_dropdown_first {
+  @extend .user_dropdown;
+  padding: 0;
+  border: 0;
+}
+.user_dropdown_inner {
+  @extend .user_dropdown;
+  transition: 0.3s;
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+  left: 0%;
+  top: 0;
+  transform: translateX(100%);
+  &:first-child {
+    left: 0;
+    transform: translateX(0%);
+  }
+}
+.user_dropdown.active {
+  top: 120%;
+  display: block;
+  pointer-events: all;
+}
+.user_dropdown_prvi {
+  @extend .user_dropdown.active;
+  pointer-events: initial;
+  position: relative;
+  padding: 15px 7px;
+  border-bottom: 2px solid $red;
+  border-top: 2px solid $red;
+
+  border-radius: 5px;
+}
+.icon_wrap {
+  @include flex(flex-start, center, row);
+  h4 {
+    margin-left: 20px;
+    color: $white;
+  }
+}
+.user_dropdown_navigation {
+  list-style-type: none;
+  margin-top: 15px;
+  &:first-of-type {
+    margin-bottom: 15px;
+  }
+}
+
+.user_dropdown_item {
+  position: relative;
+  font-size: 14px;
+  padding: 8px 5px;
+  font-weight: bold;
+  transition: 0.3s;
+  border-radius: 5px;
+  cursor: pointer;
+
+  @include flex(flex-start, center, row);
+  &:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: white;
+    .user_dropdown_inner {
+      transform: translateX(92%);
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+}
+.small_icons {
+  font-size: 17px;
+  margin-right: 7px;
+}
+.line {
+  background: $red;
+  height: 2px;
+  width: 100%;
+  margin: 10px 0;
+}
+.user_dropdown_link {
+  text-decoration: none;
+  color: $white;
+  display: inline-block;
+  width: 100%;
+}
+.dropdownIcon {
+  font-weight: bold;
+  font-size: 15px;
+  margin-left: 5px;
+}
+.burger_menu_icon {
+  color: $white;
+  font-size: 30px;
+  cursor: pointer;
+}
+.burger_menu {
+  @include flex();
+  margin-left: 10px;
+  display: none;
+  @include screen(med) {
+    display: flex;
+  }
+}
+.signup_link {
+  @include screen(med) {
+    display: none;
+  }
+}
+.logout_link {
+  @include screen(med) {
+    display: none;
+  }
+}

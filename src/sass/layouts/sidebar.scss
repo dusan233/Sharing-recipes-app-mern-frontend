@@ -1,0 +1,85 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  width: 250px;
+  z-index: 1001;
+  background: $sidebarBackground;
+  height: 100%;
+  color: $white;
+  transform: translateX(-300px);
+  transition: 0.3s;
+  padding: 20px;
+}
+.sidebar_active {
+  transform: translateX(0px);
+}
+.sidebar_img_cont {
+  img {
+    width: 150px;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+.sidebar_navigation {
+  list-style-type: none;
+  margin-top: 60px;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 45px;
+}
+.sidebar_item {
+  cursor: pointer;
+  margin-bottom: 10px;
+  @include flex(center, flex-start, column);
+  transition: 0.3s;
+  border-radius: 20px;
+  padding: 0 14px;
+}
+
+.expander {
+  font-size: 25px;
+  margin-left: 10px;
+}
+
+.sidebra_link {
+  text-decoration: none;
+  color: $white;
+  display: block;
+  width: 100%;
+}
+.sidebra_overlay {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(53, 49, 49, 0.5);
+  z-index: 1000;
+}
+.sidebar_recipes_navigation {
+  list-style-type: none;
+  padding: 0 15px;
+  background: $navigationBackground;
+  border-radius: 5px;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  font-size: 16px;
+  color: $white;
+  transition: 0.3s;
+}
+.sidebar_recipes_navigation_active {
+  height: auto;
+  padding: 15px;
+}
+.sidebar_recipes_item {
+  border-radius: 5px;
+  padding: 0 10px;
+  transition: 0.3s;
+  &:hover {
+    background: $red;
+  }
+}
+.sidebar_item_sub {
+  @include flex();
+}

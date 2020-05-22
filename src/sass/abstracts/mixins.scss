@@ -1,0 +1,58 @@
+$breakpoint-small: 750px;
+$breakpoint-med-small: 1080px;
+$breakpoint-med: 1375px;
+
+@mixin screen($size, $pixels: $breakpoint-small) {
+  @if $size == "med-small" {
+    @media screen and (max-width: $breakpoint-small) {
+      @content;
+    }
+  } @else if $size == "med" {
+    @media screen and (max-width: $breakpoint-med-small) {
+      @content;
+    }
+  } @else if $size == "large" {
+    @media screen and (max-width: $breakpoint-med) {
+      @content;
+    }
+  } @else if $size == "custom" {
+    @media screen and (max-width: $pixels + px) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin center($position) {
+  position: absolute;
+
+  @if $position == "vertical" {
+    top: 50%;
+
+    transform: translateY(-50%);
+  } @else if $position == "horizontal" {
+    left: 50%;
+
+    transform: translate(-50%);
+  } @else if $position == "both" {
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+  }
+}
+
+@mixin backgroundImg($url, $position, $size: cover, $repeat: no-repeat) {
+  background: $url;
+  background-position: $position;
+  background-size: $size;
+  background-repeat: $repeat;
+}
+
+@mixin flex($jContent: center, $aItems: center, $direction: row) {
+  display: flex;
+  justify-content: $jContent;
+  align-items: $aItems;
+  flex-direction: $direction;
+}
